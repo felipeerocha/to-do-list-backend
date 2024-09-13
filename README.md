@@ -124,7 +124,7 @@ Abaixo estão os detalhes dos endpoints disponíveis:
 
 ### 6. Buscar uma Tarefa Específica
 
-- **URL:** `/api/tasks/{id}`
+- **URL:** `/api/tasks/{id}` (No caso do teste foi o ID de numero 1).
 - **Método:** `GET`
 - **Descrição:** Retorna uma tarefa específica.
 - **Resposta de Sucesso:**
