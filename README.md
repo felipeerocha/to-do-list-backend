@@ -22,7 +22,12 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     ```
     
 2. Configure o arquivo `.env`:
+    
+    Copie o arquivo `.env.example` para `.env`:
 
+    ```bash
+    cp .env.example .env
+    ```
     Abra o arquivo `.env` e ajuste as configurações do banco de dados conforme necessário:
 
     ```env
