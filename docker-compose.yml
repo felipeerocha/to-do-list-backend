@@ -34,8 +34,6 @@ services:
     environment:
       MYSQL_DATABASE: to_do_list
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
-      MYSQL_USER: root
     ports:
       - "3307:3306"
     networks:
