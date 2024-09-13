@@ -62,6 +62,7 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     DB_DATABASE=to_do_list
     DB_USERNAME=root
     DB_PASSWORD=root
+
     ```
 
 5. Gere a Chave da Aplicação:
