@@ -1,7 +1,5 @@
 # To Do List Backend
 
-![Logo](./logo.png)
-
 ## Descrição
 
 Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte do projeto de validação de conhecimento para o processo seletivo da empresa Newm Stefanini. Ele fornece uma API REST para gerenciar tarefas (criação, consulta, atualização e remoção).
