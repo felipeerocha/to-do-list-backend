@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte do projeto de validação de conhecimento para o processo seletivo da empresa Newm Stefanini. Ele fornece uma API REST para gerenciar tarefas (criação, consulta, atualização e remoção).
+Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte do projeto de validação de conhecimento para o processo seletivo da empresa Newm Stefanini. Ele fornece uma API REST para gerenciar tarefas (novo registro e visualizar todos os registros e um registro específico.).
 
 ## Requisitos
 
@@ -76,17 +76,15 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     ```bash
     docker-compose exec app php artisan migrate
     ```
-A API está disponível em `http://localhost:8000/api/tasks`.`
+A API está disponível em `http://localhost:8000`.`
 
-Endpoints da API REST
+Endpoints da API REST (Utilizei o Postman para realização dos testes).
 
 Método | Endpoint | Descrição | Parâmetros
 --- | --- | --- | ---
+POST | /api/tasks | Cria uma nova tarefa | title, description, statu
 GET | /api/tasks | Retorna todas as tarefas | -
-POST | /api/tasks | Cria uma nova tarefa | title, description, status
 GET | /api/tasks/{id} | Retorna uma tarefa específica | {id}
-PUT | /api/tasks/{id} | Atualiza uma tarefa específica | {id}, title, description, status
-DELETE | /api/tasks/{id} | Remove uma tarefa específica | {id}
 
 Abaixo estão os detalhes dos endpoints disponíveis:
 
@@ -95,7 +93,7 @@ Abaixo estão os detalhes dos endpoints disponíveis:
 - **URL:** `/api/tasks`
 - **Método:** `POST`
 - **Descrição:** Cria uma nova tarefa.
-- **Corpo da Requisição:**
+- **Corpo da Requisição JSON:**
     ```json
     {
       "title": "Nova Tarefa",
@@ -130,29 +128,6 @@ Abaixo estão os detalhes dos endpoints disponíveis:
     ]
     ```
 
-### 3. Atualizar uma Tarefa
-
-- **URL:** `/api/tasks/{id}`
-- **Método:** `PUT`
-- **Descrição:** Atualiza uma tarefa existente.
-- **Corpo da Requisição:**
-    ```json
-    {
-      "title": "Tarefa Atualizada",
-      "description": "Descrição atualizada",
-      "status": "Concluída"
-    }
-    ```
-- **Resposta de Sucesso:**
-    ```json
-    {
-      "id": 1,
-      "title": "Tarefa Atualizada",
-      "description": "Descrição atualizada",
-      "status": "Concluída"
-    }
-
-    ```
 ### 6. Buscar uma Tarefa Específica
 
 - **URL:** `/api/tasks/{id}`
@@ -166,18 +141,6 @@ Abaixo estão os detalhes dos endpoints disponíveis:
       "description": "Descrição atualizada",
       "status": "Concluída"
     }
-
-### 5. Excluir uma Tarefa
-
-- **URL:** `/api/tasks/{id}`
-- **Método:** `DELETE`
-- **Descrição:** Remove uma tarefa existente.
-- **Resposta de Sucesso:**
-    ```json
-    {
-      "message": "Tarefa excluída com sucesso."
-    }
-    ```
 
 ## Observações:
 
