@@ -137,9 +137,9 @@ Abaixo estão os detalhes dos endpoints disponíveis:
     ```json
     {
       "id": 1,
-      "title": "Tarefa Atualizada",
-      "description": "Descrição atualizada",
-      "status": "Concluída"
+        "title": "Nova Tarefa",
+        "description": "Descrição da nova tarefa",
+        "status": "Em Andamento"
     }
 
 ## Observações:
