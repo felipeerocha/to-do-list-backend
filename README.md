@@ -122,7 +122,7 @@ Abaixo estão os detalhes dos endpoints disponíveis:
     ]
     ```
 
-### 6. Buscar uma Tarefa Específica
+### 3. Buscar uma Tarefa Específica
 
 - **URL:** `/api/tasks/{id}` (No caso do teste foi o ID de número 1).
 - **Método:** `GET`
