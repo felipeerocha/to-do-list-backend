@@ -82,7 +82,7 @@ Endpoints da API REST (Utilizei o Postman para realização dos testes).
 
 Método | Endpoint | Descrição | Parâmetros
 --- | --- | --- | ---
-POST | /api/tasks | Cria uma nova tarefa | title, description, statu
+POST | /api/tasks | Cria uma nova tarefa | title, description, status
 GET | /api/tasks | Retorna todas as tarefas | -
 GET | /api/tasks/{id} | Retorna uma tarefa específica | {id}
 
