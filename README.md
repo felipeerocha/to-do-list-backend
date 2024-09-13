@@ -48,12 +48,6 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     docker-compose exec app cp .env.example .env
     ```
     Abra o arquivo .env e ajuste as configurações do banco de dados:
-   
-   ```bash
-    docker-compose exec app bash
-    ```
-
-   Ajuste as configurações do banco de dados::
 
     ```env
     DB_CONNECTION=mysql
