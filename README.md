@@ -20,8 +20,13 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     git clone https://github.com/felipeerocha/to-do-list-backend.git
     cd to-do-list-backend
     ```
+2. Instale as dependências do Laravel usando o Composer:
+
+    ```bash
+    composer install
+    ```
     
-2. Configure o arquivo `.env`:
+3. Configure o arquivo `.env`:
     
     Copie o arquivo `.env.example` para `.env`:
 
@@ -37,12 +42,6 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     DB_DATABASE=nome_do_banco
     DB_USERNAME=usuario
     DB_PASSWORD=senha
-    ```
-
-3. Instale as Dependências:
-
-    ```bash
-    docker-compose run --rm php composer install
     ```
 
 4. Gere a Chave da Aplicação:
