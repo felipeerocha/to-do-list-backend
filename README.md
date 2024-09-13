@@ -47,13 +47,13 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
 4. Gere a Chave da Aplicação:
 
     ```bash
-    docker-compose run --rm php php artisan key:generate
+    php artisan key:generate
     ```
 
 5. Execute as migrações do banco de dados:
 
     ```bash
-    docker-compose run --rm php php artisan migrate
+    php artisan migrate
     ```
 
 ## Como Executar
