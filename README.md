@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte do projeto de validação de conhecimento para o processo seletivo da empresa Newm Stefanini. Ele fornece uma API REST para gerenciar tarefas (novo registro e visualizar todos os registros e um registro específico.).
+Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte do projeto de validação de conhecimento para o processo seletivo da empresa Newm Stefanini. Ele fornece uma API REST para gerenciar tarefas (novo registro, visualizar todos os registros e visualizar um registro específico.).
 
 ## Requisitos
 
