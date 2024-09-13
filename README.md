@@ -1,64 +1,171 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# To Do List Backend
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Logo](./logo.png)
 
-## About Laravel
+## Descrição
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte do projeto de validação de conhecimento para o processo seletivo da empresa Newm Stefanini. Ele fornece uma API REST para gerenciar tarefas (criação, consulta, atualização e remoção).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.0
+- Composer
+- MySQL
+- Docker
+- Git
 
-## Learning Laravel
+## Instruções para Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clone o repositório
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    git clone https://github.com/felipeerocha/to-do-list-backend.git
+    cd to-do-list-backend
+    ```
+    
+2. Configure o arquivo `.env`:
 
-## Laravel Sponsors
+    Abra o arquivo `.env` e ajuste as configurações do banco de dados conforme necessário:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3307
+    DB_DATABASE=nome_do_banco
+    DB_USERNAME=usuario
+    DB_PASSWORD=senha
+    ```
 
-### Premium Partners
+3. Instale as Dependências:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    ```bash
+    docker-compose run --rm php composer install
+    ```
 
-## Contributing
+4. Gere a Chave da Aplicação:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```bash
+    docker-compose run --rm php php artisan key:generate
+    ```
 
-## Code of Conduct
+5. Execute as migrações do banco de dados:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    docker-compose run --rm php php artisan migrate
+    ```
 
-## Security Vulnerabilities
+## Como Executar
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Inicie o Docker Compose:
 
-## License
+    ```bash
+    docker-compose up -d
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    Isso irá iniciar os containers do backend e do banco de dados.
+
+A API está disponível em `http://localhost:8000/api/tasks`.`
+
+Endpoints da API REST
+
+Método | Endpoint | Descrição | Parâmetros
+--- | --- | --- | ---
+GET | /api/tasks | Retorna todas as tarefas | -
+POST | /api/tasks | Cria uma nova tarefa | title, description, status
+GET | /api/tasks/{id} | Retorna uma tarefa específica | {id}
+PUT | /api/tasks/{id} | Atualiza uma tarefa específica | {id}, title, description, status
+DELETE | /api/tasks/{id} | Remove uma tarefa específica | {id}
+
+Abaixo estão os detalhes dos endpoints disponíveis:
+
+### 1. Criar uma Nova Tarefa
+
+- **URL:** `/api/tasks`
+- **Método:** `POST`
+- **Descrição:** Cria uma nova tarefa.
+- **Corpo da Requisição:**
+    ```json
+    {
+      "title": "Nova Tarefa",
+      "description": "Descrição da nova tarefa",
+      "status": "Em Andamento"
+    }
+    ```
+- **Resposta de Sucesso:**
+    ```json
+    {
+      "id": 1,
+      "title": "Nova Tarefa",
+      "description": "Descrição da nova tarefa",
+      "status": "Em Andamento"
+    }
+    ```
+
+### 2. Listar Todas as Tarefas
+
+- **URL:** `/api/tasks`
+- **Método:** `GET`
+- **Descrição:** Retorna uma lista de todas as tarefas.
+- **Resposta de Sucesso:**
+    ```json
+    [
+      {
+        "id": 1,
+        "title": "Nova Tarefa",
+        "description": "Descrição da nova tarefa",
+        "status": "Em Andamento"
+      },
+    ]
+    ```
+
+### 3. Atualizar uma Tarefa
+
+- **URL:** `/api/tasks/{id}`
+- **Método:** `PUT`
+- **Descrição:** Atualiza uma tarefa existente.
+- **Corpo da Requisição:**
+    ```json
+    {
+      "title": "Tarefa Atualizada",
+      "description": "Descrição atualizada",
+      "status": "Concluída"
+    }
+    ```
+- **Resposta de Sucesso:**
+    ```json
+    {
+      "id": 1,
+      "title": "Tarefa Atualizada",
+      "description": "Descrição atualizada",
+      "status": "Concluída"
+    }
+
+    ```
+### 6. Buscar uma Tarefa Específica
+
+- **URL:** `/api/tasks/{id}`
+- **Método:** `GET`
+- **Descrição:** Retorna uma tarefa específica.
+- **Resposta de Sucesso:**
+    ```json
+    {
+      "id": 1,
+      "title": "Tarefa Atualizada",
+      "description": "Descrição atualizada",
+      "status": "Concluída"
+    }
+
+### 5. Excluir uma Tarefa
+
+- **URL:** `/api/tasks/{id}`
+- **Método:** `DELETE`
+- **Descrição:** Remove uma tarefa existente.
+- **Resposta de Sucesso:**
+    ```json
+    {
+      "message": "Tarefa excluída com sucesso."
+    }
+    ```
+
+Observações
+O banco de dados está configurado para rodar na porta 3307. Caso enfrente erros de conexão com o banco, verifique se o arquivo .env está corretamente configurado.
