@@ -1,0 +1,15 @@
+# Laravel-specific
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/.env
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+.env.backup
+
+# Dependency directories
+composer.lock
+npm-debug.log
+yarn-error.log
