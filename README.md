@@ -20,52 +20,61 @@ Este é o backend da aplicação To-Do List, desenvolvido em Laravel como parte 
     git clone https://github.com/felipeerocha/to-do-list-backend.git
     cd to-do-list-backend
     ```
-2. Instale as dependências do Laravel usando o Composer:
+
+2. Inicie o Docker Compose:
+    
+   Não é necessário instalar o Laravel e o MySQL fora do Docker, pois o Docker se encarregará disso.
+    
+   Mova o projeto para um diretório que não esteja sendo sincronizado pelo OneDrive (se estiver usando o OneDrive), para evitar problemas com permissões e sincronização.
+
+   Execute o comando para iniciar os containers:
 
     ```bash
-    composer install
+    docker-compose up -d
+    ```
+    Isso irá iniciar os containers do backend e do banco de dados, configurando o ambiente para o Laravel e MySQL.
+
+3. Instale as dependências do Laravel usando o Composer:
+
+    ```bash
+    docker-compose exec app composer install
     ```
     
-3. Configure o arquivo `.env`:
+4. Configure o arquivo `.env`:
     
     Copie o arquivo `.env.example` para `.env`:
 
     ```bash
-    cp .env.example .env
+    docker-compose exec app cp .env.example .env
     ```
-    Abra o arquivo `.env` e ajuste as configurações do banco de dados conforme necessário:
+    Abra o arquivo .env e ajuste as configurações do banco de dados:
+   
+   ```bash
+    docker-compose exec app bash
+    ```
+
+   Ajuste as configurações do banco de dados::
 
     ```env
     DB_CONNECTION=mysql
     DB_HOST=db
-    DB_PORT=3307
-    DB_DATABASE=nome_do_banco
-    DB_USERNAME=usuario
-    DB_PASSWORD=senha
+    DB_PORT=3306
+    DB_DATABASE=to_do_list
+    DB_USERNAME=root
+    DB_PASSWORD=root
     ```
 
-4. Gere a Chave da Aplicação:
+5. Gere a Chave da Aplicação:
 
     ```bash
-    php artisan key:generate
+    docker-compose exec app php artisan key:generate
     ```
 
 5. Execute as migrações do banco de dados:
 
     ```bash
-    php artisan migrate
+    docker-compose exec app php artisan migrate
     ```
-
-## Como Executar
-
-1. Inicie o Docker Compose:
-
-    ```bash
-    docker-compose up -d
-    ```
-
-    Isso irá iniciar os containers do backend e do banco de dados.
-
 A API está disponível em `http://localhost:8000/api/tasks`.`
 
 Endpoints da API REST
