@@ -138,4 +138,4 @@ Abaixo estão os detalhes dos endpoints disponíveis:
 
 ## Observações:
 
-O banco de dados está configurado para rodar na porta 3307. Caso enfrente erros de conexão com o banco, verifique se o arquivo .env está corretamente configurado.
+O banco de dados está configurado para rodar na porta 3307:3306. Caso enfrente erros de conexão com o banco, verifique se o arquivo .env está corretamente configurado.
